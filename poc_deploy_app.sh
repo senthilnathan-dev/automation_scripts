@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # Deploy POC application.
-# Version v1.0
+# Version v1.1
 set -e 
 
 # Application related variables
@@ -135,7 +135,9 @@ buildImage ()
     logMSG "Building app image" 
     cd $BUILDPACK_PATH
     sudo docker build --build-arg BUILD_PATH="$APP_NAME" --build-arg ROOTFS_IMAGE=mendix-rootfs:app-$BUILDPACK_TAG --build-arg BUILDER_ROOTFS_IMAGE=mendix-rootfs:builder-$BUILDPACK_TAG -t $ECR_IMAGE:$NEW_TAG .
+}
 
+pushImage () {
     # push the current build
     logMSG "Pushing image to ECR"
     sudo docker push "$ECR_IMAGE:$NEW_TAG"
@@ -166,6 +168,7 @@ main ()
     checkBuildPack
     checkOutRepo
     buildImage
+    pushImage
     deployApp
     logMSG "--------- Completed Script ---------"
 }
