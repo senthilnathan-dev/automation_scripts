@@ -2,7 +2,7 @@
 
 NOTE:
 
-- once downloaded, provide script files to execute them. execute the command in terminal and execute the script file.
+- once downloaded, provide execute permission to script files for user.
 
 ```bash
 $ chmod u+x <path-to-the-script-file> 
