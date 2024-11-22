@@ -1,7 +1,7 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 # Init Script : Creates POC deployment Script.
-# Version v1.0
+# Version v1.1
 
 set -e
 
@@ -60,7 +60,7 @@ checkScriptDir
 
 script=~/automation_scripts/poc_deploy_$APP_NAME.sh
 cat << EOF > $script
-#! /usr/bin/bash
+#! /bin/bash
 
 set -e
 
