@@ -1,3 +1,8 @@
-
+# logs directory
 logs/
 
+# environment files directory
+env/
+
+# python virtual environment
+.venv/
